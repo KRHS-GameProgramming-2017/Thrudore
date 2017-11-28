@@ -2,9 +2,9 @@ import sys, pygame, math
 
 class Player():
     def __init__(self, pos):
-        self.rImage = pygame.image.load("Images\Player\StickFigure\LPlayerPlaceHolder.png")
+        self.rImage = pygame.image.load("Images\Player\StickFigure\RPlayerPlaceHolder.png")
         self.rImage = pygame.transform.scale(self.rImage,[80,240])
-        self.lImage = pygame.image.load("Images\Player\StickFigure\RPlayerPlaceHolder.png")
+        self.lImage = pygame.image.load("Images\Player\StickFigure\LPlayerPlaceHolder.png")
         self.lImage = pygame.transform.scale(self.lImage,[80,240])
         self.facing = "right"
         self.image = self.rImage
@@ -42,12 +42,11 @@ class Player():
         
     def go(self, movement):
         if movement == "right":
-            #move(self.speed)
-            self.rect.move(self.speed)
+            self.rect.move(self.speed[0])
             print "Moved Right"
+            print self.rect
         elif movement == "left":
-            #move(self.speed[0]*-1)
-            self.rect.move(self.speed)
+            self.rect.move(-self.speed[0])
             print "Moved Left"
     
     
