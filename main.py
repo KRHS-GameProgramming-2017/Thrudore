@@ -43,12 +43,16 @@ while True:
                 #player.go("stop down")
             #Stops x
             if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
-                player.go("stop right")
+                player.go("stop x")
             if event.key == pygame.K_a or event.key == pygame.K_LEFT:
-                player.go("stop left")
+                player.go("stop x")
+
+    #Move Stuff Here
+    player.move()
+    
     
     screen.fill(bgColor)
     #Blit other things here
-    screen.blit(player.rImage, player.rect)
+    screen.blit(player.image, player.rect)
     pygame.display.flip()
     clock.tick(60)

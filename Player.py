@@ -2,9 +2,9 @@ import sys, pygame, math
 
 class Player():
     def __init__(self, pos):
-        self.rImage = pygame.image.load("Images\Player\StickFigure\RPlayerPlaceHolder.png")
+        self.rImage = pygame.image.load("Images/Player/StickFigure/RPlayerPlaceHolder.png")
         self.rImage = pygame.transform.scale(self.rImage,[80,240])
-        self.lImage = pygame.image.load("Images\Player\StickFigure\LPlayerPlaceHolder.png")
+        self.lImage = pygame.image.load("Images/Player/StickFigure/LPlayerPlaceHolder.png")
         self.lImage = pygame.transform.scale(self.lImage,[80,240])
         self.facing = "right"
         self.image = self.rImage
@@ -16,7 +16,8 @@ class Player():
         self.maxCorruption = 100
         self.health = 100
         self.mana = 100
-        self.speed = [x,y] = [4,0]
+        self.speed = [x,y] = [0,0]
+        self.maxSpeed = [xm,ym] = [3,0]
         #Corruption and armor
         self.corruption = 100
         self.corruptionResistance = 0
@@ -37,17 +38,22 @@ class Player():
         
         
         
-    #def move(self, speed):
-        #self.rect.move(speed)
+    def move(self):
+        self.rect = self.rect.move(self.speed)
         
     def go(self, movement):
         if movement == "right":
-            self.rect.move(self.speed[0])
-            print "Moved Right"
-            print self.rect
+            self.image = self.rImage
+            self.facing = "right"
+            self.speed[0] = self.maxSpeed[0]
+            print "Move Right"
         elif movement == "left":
-            self.rect.move(-self.speed[0])
+            self.image = self.lImage
+            self.facing = "left"
+            self.speed[0] = -self.maxSpeed[0]
             print "Moved Left"
+        elif movement == "stop x":
+            self.speed[0] = 0
     
     
     
