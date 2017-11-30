@@ -2,10 +2,10 @@ import sys, pygame, math
 
 class Player():
     def __init__(self, pos):
-        self.rImage = pygame.image.load("Images/Player/StickFigure/RPlayerPlaceHolder.png")
-        self.rImage = pygame.transform.scale(self.rImage,[80,240])
-        self.lImage = pygame.image.load("Images/Player/StickFigure/LPlayerPlaceHolder.png")
-        self.lImage = pygame.transform.scale(self.lImage,[80,240])
+        self.rImage = pygame.image.load("Images/Player/Default/RPlayer.png")
+        self.rImage = pygame.transform.scale(self.rImage,[110,240])
+        self.lImage = pygame.image.load("Images/Player/Default/LPlayer.png")
+        self.lImage = pygame.transform.scale(self.lImage,[110,240])
         self.facing = "right"
         self.image = self.rImage
         self.rect = self.image.get_rect(center = pos)
@@ -37,21 +37,21 @@ class Player():
         #Other things that are not stat related
         
         
-        
+    #Using the input in go, moves the player accordingly
     def move(self):
         self.rect = self.rect.move(self.speed)
-        
+    #Interprets input for the player
     def go(self, movement):
         if movement == "right":
             self.image = self.rImage
             self.facing = "right"
             self.speed[0] = self.maxSpeed[0]
-            print "Move Right"
+            #print "Move Right"
         elif movement == "left":
             self.image = self.lImage
             self.facing = "left"
             self.speed[0] = -self.maxSpeed[0]
-            print "Moved Left"
+            #print "Moved Left"
         elif movement == "stop x":
             self.speed[0] = 0
     
