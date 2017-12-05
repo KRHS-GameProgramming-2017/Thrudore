@@ -3,6 +3,8 @@ import sys, pygame, math
 from Player import *
 from UIManager import *
 
+
+
 #Inital stuff
 pygame.init()
 clock = pygame.time.Clock()
@@ -15,6 +17,9 @@ bgColor = r,g,b = 0, 0, 0
 player = Player([width/2, height-150])
 UIManager = UIManager()
 
+#Move UI Elements
+UIManager.MBRect = UIManager.MBRect.move(UIManager.MBPose)
+UIManager.HBRect = UIManager.HBRect.move(UIManager.HBPose)
 while True:
     
     #Handles Key Presses
