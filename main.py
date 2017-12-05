@@ -56,8 +56,9 @@ while True:
 
     #Move Stuff Here
     player.move()
-    
-    
+    #Update things
+    print player.maxHealth
+    UIManager.updateGlobes(player.health/player.maxHealth, player.mana/player.maxMana)
     screen.fill(bgColor)
     #Blit other things here
     screen.blit(player.image, player.rect)

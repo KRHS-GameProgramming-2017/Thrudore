@@ -22,3 +22,6 @@ class UIManager():
         screen.blit(self.healthBox, self.HBRect)
         
         screen.blit(self.mainDisplay, self.MDRect)
+    def updateGlobes(self, health, mana):
+            self.healthBox = pygame.transform.scale(self.healthBox,[65,health])
+            self.manaBox = pygame.transform.scale(self.manaBox,[65,mana])
