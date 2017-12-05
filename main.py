@@ -1,6 +1,7 @@
 import sys, pygame, math
 
 from Player import *
+from UIManager import *
 
 #Inital stuff
 pygame.init()
@@ -12,6 +13,7 @@ screen = pygame.display.set_mode(size)
 bgColor = r,g,b = 0, 0, 0
 
 player = Player([width/2, height-150])
+UIManager = UIManager()
 
 while True:
     
@@ -54,5 +56,6 @@ while True:
     screen.fill(bgColor)
     #Blit other things here
     screen.blit(player.image, player.rect)
+    UIManager.drawElements(screen)
     pygame.display.flip()
     clock.tick(60)
