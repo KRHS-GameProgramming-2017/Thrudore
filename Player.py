@@ -52,8 +52,12 @@ class Player():
             self.facing = "left"
             self.speed[0] = -self.maxSpeed[0]
             #print "Moved Left"
-        elif movement == "stop x":
-            self.speed[0] = 0
+        elif movement == "stop right":
+            if self.facing == "right":
+                self.speed[0] = 0
+        elif movement == "stop left":
+            if self.facing == "left":
+                self.speed[0] = 0
     
     
     
