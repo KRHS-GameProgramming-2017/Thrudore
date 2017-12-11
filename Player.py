@@ -58,6 +58,10 @@ class Player():
         elif movement == "stop left":
             if self.facing == "left":
                 self.speed[0] = 0
+                
+
+    def editHealth(self, amount = 0):
+        self.health = self.health + amount
     
     
     

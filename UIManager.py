@@ -7,21 +7,30 @@ class UIManager():
         self.MDRect = self.mainDisplay.get_rect()
         #Adds Boxes behind spheres
             #mana
-        self.manaBox = pygame.image.load("Images/Other/UIElements/ManaBox.png")
-        self.MBRect = self.manaBox.get_rect()
-        self.MBPose = [725,19]
+        self.manaBoxImage = pygame.Surface((65,65))#pygame.image.load("Images/Other/UIElements/ManaBox.png")
+        self.manaBoxImage.fill((0,0,255))
+        self.MBRect = self.manaBoxImage.get_rect(bottomleft = (721,84))
             #health
-        self.healthBox = pygame.image.load("Images/Other/UIElements/HealthBox.png")
-        self.HBRect = self.healthBox.get_rect()
-        self.HBPose = [16,18]
+        self.healthBoxImage = pygame.Surface((65, 65))#pygame.image.load("Images/Other/UIElements/HealthBox.png")
+        self.healthBoxImage.fill((255,0,0))
+        self.HBRect = self.healthBoxImage.get_rect(bottomleft = (17,84))
+        
     def drawElements(self, screen):
         #Move elements
-        #self.MBRect = self.MBRect.move(self.MBPose)
-        #Draw Elements
-        screen.blit(self.manaBox, self.MBRect)
-        screen.blit(self.healthBox, self.HBRect)
+        #self.MBRect = self.MBRect.move(0,0)
         
+        #Draw Elements
+        screen.blit(self.manaBoxImage, self.MBRect)
+        screen.blit(self.healthBoxImage, self.HBRect)
         screen.blit(self.mainDisplay, self.MDRect)
-    def updateGlobes(self, health, mana):
-            self.healthBox = pygame.transform.scale(self.healthBox,[65,health])
-            self.manaBox = pygame.transform.scale(self.manaBox,[65,mana])
+        
+    def updateGlobes(self, health, maxHealth, mana, maxMana):
+        healthPercent = int((float(health)/float(maxHealth))*65)
+        manaPercent = int((float(mana)/float(maxMana))*65)
+        self.healthBoxImage = pygame.transform.scale(self.healthBoxImage,[65,healthPercent])
+        self.HBRect = self.healthBoxImage.get_rect(bottomleft = (17,84))
+        self.manaBoxImage = pygame.transform.scale(self.manaBoxImage,[65,manaPercent])
+        self.MBRect = self.manaBoxImage.get_rect(bottomleft = (721,84))
+        #self.HBRect = self.healthBoxImage.get_rect(center = self.HBRect.bottomleft)
+        #self.manaBoxImage = pygame.transform.scale(self.manaBoxImage,[65,manaPercent])
+        
