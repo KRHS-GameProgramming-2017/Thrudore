@@ -2,6 +2,7 @@ import sys, pygame, math
 
 from Player import *
 from UIManager import *
+from SceneManager import *
 
 
 mult = 1
@@ -17,6 +18,9 @@ bgColor = r,g,b = 0, 0, 0
 
 player = Player([width/2, height-150])
 UIManager = UIManager()
+SceneManager = SceneManager();
+
+scene = None
 
 #Move UI Elements
 #UIManager.MBRect = UIManager.MBRect.move(UIManager.MBPose)
@@ -39,10 +43,12 @@ while True:
         if event.type == pygame.KEYDOWN:
             #Sets y direction
             if event.key == pygame.K_w or event.key == pygame.K_UP:
-                pass
+               SceneManager.changeScene(SceneManager.s2)
+                #pass
                 #player.go("up")
             if event.key == pygame.K_s or event.key == pygame.K_DOWN:
-                pass
+                SceneManager.changeScene(SceneManager.s1)
+                #pass
                 #player.go("down")
             #Sets x direction
             if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
@@ -74,11 +80,25 @@ while True:
     #Move Stuff Here
     player.move()
     #Update things
-    screen.fill(bgColor)
+    #screen.fill(bgColor)
     
-    UIManager.updateGlobes(player.health, player.maxHealth, player.mana, player.maxMana)
+    UIManager.updateGlobes(player.health, 
+                           player.maxHealth, 
+                           player.mana, 
+                           player.maxMana)
     #Blit other things here
+    #Blit Scene then UI then player
+    
+    if SceneManager.currentScene != scene:
+        scene = SceneManager.currentScene
+        SceneManager.drawElements(screen, scene)
+        print "The scene has changed to: " + scene.name
+    else:
+        SceneManager.drawElements(screen, scene)
+        
+    if (UIManager.playerRecordedHealth != player.health or 
+        UIManager.playerRecordedMana != player.mana):
+            UIManager.drawElements(screen)
     screen.blit(player.image, player.rect)
-    UIManager.drawElements(screen)
     pygame.display.flip()
     clock.tick(60)

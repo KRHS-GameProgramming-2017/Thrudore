@@ -15,6 +15,9 @@ class UIManager():
         self.healthBoxImage.fill((255,0,0))
         self.HBRect = self.healthBoxImage.get_rect(bottomleft = (17,84))
         
+        self.playerRecordedHealth = 0
+        self.playerRecrodedMana = 0
+        
     def drawElements(self, screen):
         #Move elements
         #self.MBRect = self.MBRect.move(0,0)
@@ -31,6 +34,11 @@ class UIManager():
         self.HBRect = self.healthBoxImage.get_rect(bottomleft = (17,84))
         self.manaBoxImage = pygame.transform.scale(self.manaBoxImage,[65,manaPercent])
         self.MBRect = self.manaBoxImage.get_rect(bottomleft = (721,84))
+        
+        health = self.playerRecordedHealth
+        mana = self.playerRecrodedMana
+        
+        
         #self.HBRect = self.healthBoxImage.get_rect(center = self.HBRect.bottomleft)
         #self.manaBoxImage = pygame.transform.scale(self.manaBoxImage,[65,manaPercent])
         
