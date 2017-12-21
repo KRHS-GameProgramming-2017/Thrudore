@@ -11,27 +11,27 @@ class Player():
         self.rect = self.image.get_rect(center = pos)
         
         #Stats
-        self.maxHealth = 100
-        self.maxMana = 100
-        self.maxCorruption = 100
-        self.health = 100
-        self.mana = 100
-        self.speed = [x,y] = [0,0]
-        self.maxSpeed = [xm,ym] = [3,0]
+        self.maxHealth = 100#1
+        self.maxMana = 100#2
+        self.maxCorruption = 100#3
+        self.health = 100#4
+        self.mana = 100#5
+        self.speed = [x,y] = [0,0]#6
+        self.maxSpeed = [xm,ym] = [3,0]#7
         #Corruption and armor
-        self.corruption = 100
-        self.corruptionResistance = 0
-        self.armor = 0
+        self.corruption = 100#8
+        self.corruptionResistance = 0#9
+        self.armor = 0#10
         #Xp vars
         self.lvl = 1
         self.xpToNextLvl = 100
-        self.xp = 0
-        self.xpMult = 0
+        self.xp = 0#11
+        self.xpMult = 0#12
         #Damage
-        self.damage = 2
-        self.lifesteal = 0
-        self.attackSpeed = 1.0
-        self.gold = 0
+        self.damage = 2#13
+        self.lifesteal = 0#14
+        self.attackSpeed = 1.0#15
+        self.gold = 0#16
         #20 total inventory slots
         self.inventory = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         #Other things that are not stat related

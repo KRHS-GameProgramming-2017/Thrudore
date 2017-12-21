@@ -16,7 +16,7 @@ class UIManager():
         self.HBRect = self.healthBoxImage.get_rect(bottomleft = (17,84))
         
         self.playerRecordedHealth = 0
-        self.playerRecrodedMana = 0
+        self.playerRecordedMana = 0
         
     def drawElements(self, screen):
         #Move elements
@@ -36,7 +36,7 @@ class UIManager():
         self.MBRect = self.manaBoxImage.get_rect(bottomleft = (721,84))
         
         health = self.playerRecordedHealth
-        mana = self.playerRecrodedMana
+        mana = self.playerRecordedMana
         
         
         #self.HBRect = self.healthBoxImage.get_rect(center = self.HBRect.bottomleft)
