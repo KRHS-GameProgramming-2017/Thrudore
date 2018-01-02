@@ -12,8 +12,10 @@ class SceneManager():
                             "Images/Other/Scenes/TestScene2.png")
         self.s3 = CreateImage(0,600, "test3", 
                             "Images/Other/Scenes/TestScene3.png")
+        self.startRoom = CreateImage(0,600, "startRoom",
+                            "Images/other/Scenes/Scene1.png")
         
-        self.currentScene = self.s1
+        self.currentScene = self.startRoom
         
     def drawElements(self, screen, scene):
         screen.blit(scene.image, scene.rect)

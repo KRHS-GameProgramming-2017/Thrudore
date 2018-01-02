@@ -3,6 +3,7 @@ import sys, pygame, math
 from Player import *
 from UIManager import *
 from SceneManager import *
+from Item import *
 
 
 mult = 1
@@ -21,6 +22,7 @@ UIManager = UIManager()
 SceneManager = SceneManager();
 
 scene = None
+testItem = Item()
 
 #Move UI Elements
 #UIManager.MBRect = UIManager.MBRect.move(UIManager.MBPose)
@@ -47,7 +49,7 @@ while True:
                 #pass
                 #player.go("up")
             if event.key == pygame.K_s or event.key == pygame.K_DOWN:
-                SceneManager.changeScene(SceneManager.s1)
+                SceneManager.changeScene(SceneManager.startRoom)
                 #pass
                 #player.go("down")
             #Sets x direction
@@ -62,6 +64,9 @@ while True:
             if event.key == pygame.K_l:
                 player.health = player.health - 5
             
+            
+            if event.key == pygame.K_z:
+                testItem.randomizeStats(True)
         #Detects Key Releases
         if event.type == pygame.KEYUP:
             #Stops y
