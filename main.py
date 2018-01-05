@@ -22,7 +22,7 @@ UIManager = UIManager()
 SceneManager = SceneManager();
 
 scene = None
-testItem = Item()
+testItem = Item("armor")
 
 #Move UI Elements
 #UIManager.MBRect = UIManager.MBRect.move(UIManager.MBPose)
