@@ -4,7 +4,7 @@ from Player import *
 from UIManager import *
 from SceneManager import *
 from Item import *
-
+from TextManager import *
 
 mult = 1
 mult2 = 1
@@ -19,10 +19,12 @@ bgColor = r,g,b = 0, 0, 0
 
 player = Player([width/2, height-150])
 UIManager = UIManager()
-SceneManager = SceneManager();
+SceneManager = SceneManager()
+
 
 scene = None
-testItem = Item("armor")
+#TextManager = TextManager()
+testItem = Item("weapon")
 
 #Move UI Elements
 #UIManager.MBRect = UIManager.MBRect.move(UIManager.MBPose)
@@ -104,6 +106,13 @@ while True:
     if (UIManager.playerRecordedHealth != player.health or 
         UIManager.playerRecordedMana != player.mana):
             UIManager.drawElements(screen)
+    #Font Test Stuff Here
+    
+    font = pygame.font.Font(None,36)
+    text = font.render("Thrudore", 1, (10,10,10))
+    textpos = text.get_rect()
+    screen.blit(text, textpos)
+    
     screen.blit(player.image, player.rect)
     pygame.display.flip()
     clock.tick(60)

@@ -2,7 +2,7 @@ import sys, pygame, math, random
 
 
 class Item():
-    def __init__(self, type = "item", subType = "universal", name = "Unnamed", description = "This is a description", image = "Images/Other/Items/NoImage.png", visable = False):
+    def __init__(self, type = "item", subType = "universal", name = "Item", description = "This is a description", image = "Images/Other/Items/NoImage.png", visable = False):
         self.name = name
         self.image = pygame.image.load(image)
         self.rect = self.image.get_rect()
@@ -11,6 +11,9 @@ class Item():
         self.cost = 0
         self.type = type
         self.subType = subType
+        self.enchantment = None
+        self.modifier = None
+        self.modName = None
         #Stat Changes
         
         self.statList = [
@@ -46,12 +49,27 @@ class Item():
             "thorns":0,
             "goldChance":0,
             "corruption":0}
+        self.enchantments = {
+            "Angelic": .2, #max corruption
+            "Vampiric": .15,
+            "Brutal": 0.2,
+            "Battle Hardened": .15,
+            "Void": .15,   #corruptionResistance
+            "Swift": .1,
+            "Corrupted":.2}
+        self.modifiers = {
+            "Improved": 0.2,
+            "Refined": 0.4,
+            "Enhanced": 0.6,
+            "Immaculate": 1,
+            "Ascended": 1.2}
             
         
         #print self.stats.keys
     def randomizeStats(self,show = False, probability = False):
         for stat in self.stats:
             self.stats[stat] = 0
+        self.name = "Item"
         if probability == True:
             print "vvv:Probability Active:vvv"
             numOfStats = 0
@@ -102,8 +120,44 @@ class Item():
             val = 0
             statnumber = 0
             baseStatNum = 0
-            if show:
-                print "=== Item type:", self.type, "==="
+            print "=== Item type:", self.type, "==="
+            if random.randint(1,100)<=30:
+                print "&&*Enchantment*&&"
+                hasEnchantment = False
+                while hasEnchantment == False:
+                    for enchantment in self.enchantments:
+                        if random.randint(1,100) <= 35:
+                            self.enchantment = enchantment
+                            print "}--->", enchantment
+                            hasEnchantment = True
+                            if hasEnchantment == True:
+                                self.name = enchantment + " " + self.name
+                            break
+                if random.randint(1,100)<=30:
+                    print "*---Modifier---*"
+                    num = random.randint(1,100)
+                    if num <=8:
+                        self.modifier = self.modifiers["Ascended"]
+                        self.modName = "Ascended"
+                    elif num > 8 and num  <= 28:
+                        self.modifier = self.modifiers["Immaculate"]
+                        self.modName = "Immaculate"
+                    elif num > 28 and num <= 50:
+                        self.modifier = self.modifiers["Enhanced"]
+                        self.modName = "Enhanced"
+                    elif num > 50 and num <= 80:
+                        self.modifier = self.modifiers["Refined"]
+                        self.modName = "Refined"
+                    elif num > 80 and num <= 100:
+                        self.modifier = self.modifiers["Improved"]
+                        self.modName = "Improved"
+                    print "}-[", self.modifier, "<<",self.modName,">>"
+                    self.name = self.modName + " " + self.name
+                print "Item Name:", self.name
+                        
+                    
+                            
+                    
             print "++++Randomize Stats Initiated++++"
             for stat in self.stats:
                 perc = random.randint(1,100)
@@ -159,6 +213,3 @@ class Item():
         print "===========Item Stats==========="
         for stat in self.statList:
             print stat
-    def displayStat(self,number):
-        print "===========Single Stat==========="
-        print self.statList[number]
