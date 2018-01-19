@@ -26,7 +26,7 @@ SceneManager = SceneManager()
 scene = None
 testItem = Item()
 testItem = Item("weapon")
-
+TextManager = TextManager(screen, scene)
 p = PlayerAnimation([width/2, height/2])
 
 #Move UI Elements
