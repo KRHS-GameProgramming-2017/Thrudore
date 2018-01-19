@@ -4,6 +4,7 @@ from Player import *
 from UIManager import *
 from SceneManager import *
 from Item import *
+from playeranimation import *
 
 
 mult = 1
@@ -23,6 +24,8 @@ SceneManager = SceneManager();
 
 scene = None
 testItem = Item()
+
+p = PlayerAnimation([width/2, height/2])
 
 #Move UI Elements
 #UIManager.MBRect = UIManager.MBRect.move(UIManager.MBPose)
@@ -86,6 +89,7 @@ while True:
     player.move()
     #Update things
     #screen.fill(bgColor)
+    p.animate()
     
     UIManager.updateGlobes(player.health, 
                            player.maxHealth, 
@@ -104,6 +108,6 @@ while True:
     if (UIManager.playerRecordedHealth != player.health or 
         UIManager.playerRecordedMana != player.mana):
             UIManager.drawElements(screen)
-    screen.blit(player.image, player.rect)
+    screen.blit(p.image, p.rect)
     pygame.display.flip()
     clock.tick(60)

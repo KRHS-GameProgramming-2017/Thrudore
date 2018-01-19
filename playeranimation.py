@@ -1,25 +1,38 @@
 import sys, pygame, math
-from main import *
-from Player import *
 
 
 class PlayerAnimation():
     def __init__(self, pos):
-        self.rImage = [p.i.land("path/player"),
-              [p.i.land("path/playeranimation1"),
-              [p.i.land("path/playeranimation2"),
-              [p.i.land("path/playeranimation1"),
-              [p.i.land("path/playeranimation3")]
+        self.rImages = [pygame.image.load("Images/Player/0playeranimation0.png"),
+                        pygame.image.load("Images/Player/1playeranimation1.png"),
+                        pygame.image.load("Images/Player/2playeranimation2.png"),
+                        pygame.image.load("Images/Player/1playeranimation1.png"),
+                        pygame.image.load("Images/Player/3playeranimation3.png")]
+                        
+        self.lImages = [pygame.image.load("Images/Player/4playeranimation4.png"),
+                        pygame.image.load("Images/Player/5playeranimation5.png"),
+                        pygame.image.load("Images/Player/6playeranimation6.png"),
+                        pygame.image.load("Images/Player/5playeranimation5.png"),
+                        pygame.image.load("Images/Player/7playeranimation7.png")]
 
-    self.frame = 0
-    self.maxframe = len(self.rImage)-1)
-    self.image = self.rImage[self.frame]
-    self.AnimationTimer = 0
-    self.AnimationTimerMax = 30/10
-        if AnimationTimer < AnimationTimerMax:
-            AnimationTimer += 1
-        else
-            AnimationTimer = 0
-            if self.frame < self.maxframe
+        self.frame = 0
+        self.maxframe = len(self.rImages)-1
+        self.image = self.rImages[self.frame]
+        self.rect = self.image.get_rect(center = pos)
+        self.AnimationTimer = 0
+        self.AnimationTimerMax = 30/10
+    
+    
+    def animate(self):
+        if self.AnimationTimer < self.AnimationTimerMax:
+            self.AnimationTimer += 1
+        else:
+            self.AnimationTimer = 0
+            if self.frame < self.maxframe:
                 self.frame += 1
-        self.image = self.rImage[self.frame]
+            else:
+                self.frame = 0
+            #if self.facing == "right":
+            self.image = self.rImages[self.frame
+            
+    
