@@ -4,12 +4,8 @@ from Player import *
 from UIManager import *
 from SceneManager import *
 from Item import *
-
-from playeranimation import *
-
-
 from TextManager import *
-
+from playeranimation import *
 
 mult = 1
 mult2 = 1
@@ -28,7 +24,7 @@ SceneManager = SceneManager()
 
 
 scene = None
-#TextManager = TextManager()
+testItem = Item()
 testItem = Item("weapon")
 
 p = PlayerAnimation([width/2, height/2])
@@ -114,15 +110,13 @@ while True:
     if (UIManager.playerRecordedHealth != player.health or 
         UIManager.playerRecordedMana != player.mana):
             UIManager.drawElements(screen)
-
-
     #Font Test Stuff Here
     
     font = pygame.font.Font(None,36)
     text = font.render("Thrudore", 1, (10,10,10))
     textpos = text.get_rect()
     screen.blit(text, textpos)
-    
+    screen.blit(p.image, p.rect)
     screen.blit(player.image, player.rect)
     pygame.display.flip()
     clock.tick(60)
