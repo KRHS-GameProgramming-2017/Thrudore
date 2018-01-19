@@ -9,11 +9,11 @@ class PlayerAnimation():
                         pygame.image.load("Images/Player/1playeranimation1.png"),
                         pygame.image.load("Images/Player/3playeranimation3.png")]
                         
-        self.lImages = [pygame.image.load("Images/Player/4playeranimation4.png"),
-                        pygame.image.load("Images/Player/5playeranimation5.png"),
-                        pygame.image.load("Images/Player/6playeranimation6.png"),
-                        pygame.image.load("Images/Player/5playeranimation5.png"),
-                        pygame.image.load("Images/Player/7playeranimation7.png")]
+        #self.lImages = [pygame.image.load("Images/Player/4playeranimation4.png"),
+        #                pygame.image.load("Images/Player/5playeranimation5.png"),
+        #                pygame.image.load("Images/Player/6playeranimation6.png"),
+        #                pygame.image.load("Images/Player/5playeranimation5.png"),
+        #                pygame.image.load("Images/Player/7playeranimation7.png")]
 
         self.frame = 0
         self.maxframe = len(self.rImages)-1
@@ -33,6 +33,4 @@ class PlayerAnimation():
             else:
                 self.frame = 0
             #if self.facing == "right":
-            self.image = self.rImages[self.frame
-            
-    
+            self.image = self.rImages[self.frame]

@@ -1,0 +1,99 @@
+harold's medallion (stats revert in boss fight/ cant remove once in boss fight)
+	*stats:
+		- +2 agility
+		- +2 armour 
+		- 13% reduction to corruption
+	*stats2: 
+		-speed recuded by 8%
+		- -4 to all armour modifiers
+		- 70% increase to corruption
+	*lore:
+		Many heroes can be found with this medallion, some of great triumph, other of heroic adventures. The current owner of this 
+		medallion is Harold the Nobel, who comes from a long line of royal descendents of the Chimeron realm. As the corruption has 
+		spread, Harold now turns this medallion to another; an adventure seeking to rid the world of corruption. (in corrupted
+		lang.) "beware the corruption.." (continued in corrupted lang/ cryptic code) "for it is not as it seems"
+Baum
+
+Friendship (joke weapon)
+
+The Banner of Blasphemy
+
+The Borderlands bucket of faith
+
+The Hammer of Min
+
+Troll biter
+
+Sword of Dragon Bane
+
+Gladrials Vial
+
+Sword of Darkness
+
+Durins plate
+
+Crystal Hall Dagger
+
+Stasis Sphere
+
+Rod of Power
+
+Staff of Zebedee
+
+Wand of Souls
+
+Nightmare
+
+The Boom Stick
+
+Pathfinder
+
+Ring of Spell Storing
+
+Effiltins Chainmail
+
+Azurewrath
+
+Sword of Retribution
+
+Masaromath
+
+Dahksole
+
+The Holy Cursed Staff of Antioch
+
+Mace of Rhomer
+
+Tao's Deck of Many Things
+
+The Void
+
+Bushido
+
+The Journal of Sands
+
+Staff of Fae Vision
+
+Targyles Spellbook
+
+People:
+
+-Shandar (invictus)
+-Guilliam (invictus)
+-Wrath (invictus)
+-Quinn (invictus)
+-Orion (Chimeron)
+-Cecil (Chimeron)
+-Rosetta (Chimeron)
+-Vandoria (vendor/creathorne)
+-Tao (Blackwood)
+-Saegan (Blackwood)
+-K (Blackwood)
+-Kara (Blackwood)
+-Rani (Blackwood)
+-Sir Sean (Creathorne)
+-Jericho (Arkon)
+-Jack (Arkon)
+-Ebony/Ivory (Arkon)
+-Elric (Rathkeil)
+-
