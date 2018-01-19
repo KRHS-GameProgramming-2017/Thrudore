@@ -23,8 +23,9 @@ SceneManager = SceneManager()
 
 
 scene = None
-#TextManager = TextManager()
+
 testItem = Item("weapon")
+TextManager = TextManager(screen, scene)
 
 #Move UI Elements
 #UIManager.MBRect = UIManager.MBRect.move(UIManager.MBPose)
