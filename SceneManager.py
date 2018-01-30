@@ -14,6 +14,8 @@ class SceneManager():
                             "Images/Other/Scenes/TestScene3.png")
         self.startRoom = CreateImage(0,600, "startRoom",
                             "Images/other/Scenes/Scene1.png")
+        self.inventory = CreateImage(0, 600, "inventory", 
+                            "Images/other/Scenes/InventoryLayout.png")
         
         self.currentScene = self.startRoom
         
