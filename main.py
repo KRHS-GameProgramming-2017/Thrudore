@@ -6,6 +6,7 @@ from SceneManager import *
 from Item import *
 from TextManager import *
 from playeranimation import *
+from Text import *
 
 mult = 1
 mult2 = 1
@@ -18,6 +19,10 @@ size = width, height
 screen = pygame.display.set_mode(size)
 bgColor = r,g,b = 0, 0, 0
 
+
+font = pygame.font.Font(None,36)
+
+
 player = Player([width/2, height-150])
 UIManager = UIManager()
 SceneManager = SceneManager()
@@ -27,6 +32,9 @@ scene = None
 testItem = Item()
 testItem = Item("weapon")
 TextManager = TextManager(screen, scene)
+
+newText = Text("Testing", [20,20])
+
 p = PlayerAnimation([width/2, height/2])
 
 #Move UI Elements
@@ -57,11 +65,20 @@ while True:
                 SceneManager.changeScene(SceneManager.startRoom)
                 #pass
                 #player.go("down")
-            #Sets x direction
+            #Sets x directionZ
             if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 player.go("right")
             if event.key == pygame.K_a or event.key == pygame.K_LEFT:
                 player.go("left")
+            #Inventory Activation
+            if event.key == pygame.K_TAB:
+                if scene == SceneManager.inventory and event.key == pygame.K_TAB:
+                    SceneManager.changeScene(lastScene)
+                else:
+                    lastScene = scene
+                    SceneManager.changeScene(SceneManager.inventory)
+            
+                
                 
             #Other Key events:
             if event.key == pygame.K_p:
@@ -93,30 +110,36 @@ while True:
     #screen.fill(bgColor)
     p.animate()
     
-    UIManager.updateGlobes(player.health, 
-                           player.maxHealth, 
-                           player.mana, 
-                           player.maxMana)
-    #Blit other things here
-    #Blit Scene then UI then player
-    
+    if SceneManager.currentScene == SceneManager.inventory:
+        pass
+    else:
+        UIManager.updateGlobes(player.health, 
+                               player.maxHealth, 
+                               player.mana, 
+                               player.maxMana)
+        #Blit other things here
+        #Blit Scene then UI then player
+    #------------------------------------------------------
     if SceneManager.currentScene != scene:
         scene = SceneManager.currentScene
         SceneManager.drawElements(screen, scene)
         print "The scene has changed to: " + scene.name
     else:
         SceneManager.drawElements(screen, scene)
+    #-----------------------------------------------------
+    if SceneManager.currentScene == SceneManager.inventory:
+        screen.blit(newText.words, newText.textpos)
+    else:
+        if (UIManager.playerRecordedHealth != player.health or 
+            UIManager.playerRecordedMana != player.mana):
+                UIManager.drawElements(screen)
+        #Font Test Stuff Here
         
-    if (UIManager.playerRecordedHealth != player.health or 
-        UIManager.playerRecordedMana != player.mana):
-            UIManager.drawElements(screen)
-    #Font Test Stuff Here
-    
-    font = pygame.font.Font(None,36)
-    text = font.render("Thrudore", 1, (10,10,10))
-    textpos = text.get_rect()
-    screen.blit(text, textpos)
-    screen.blit(p.image, p.rect)
-    screen.blit(player.image, player.rect)
+        
+        text = font.render("Thrudore", 1, (137,171,0))#89AB00 = the green for fonts
+        textpos = text.get_rect()
+        screen.blit(text, textpos)
+        screen.blit(p.image, p.rect)
+        screen.blit(player.image, player.rect)
     pygame.display.flip()
     clock.tick(60)
