@@ -29,8 +29,7 @@ SceneManager = SceneManager()
 
 
 scene = None
-testItem = Item()
-testItem = Item("weapon")
+testItem = Item(screen, "weapon", "universal", "Health Potion", "*Description*", "Images/Other/Items/HealthPotion.png")
 TextManager = TextManager(screen, scene)
 
 newText = Text("Testing", [20,20])
@@ -128,7 +127,8 @@ while True:
         SceneManager.drawElements(screen, scene)
     #-----------------------------------------------------
     if SceneManager.currentScene == SceneManager.inventory:
-        screen.blit(newText.words, newText.textpos)
+        testItem.drawElements()
+        #screen.blit(newText.words, newText.textpos)
     else:
         if (UIManager.playerRecordedHealth != player.health or 
             UIManager.playerRecordedMana != player.mana):

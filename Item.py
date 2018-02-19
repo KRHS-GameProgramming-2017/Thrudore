@@ -1,10 +1,13 @@
 import sys, pygame, math, random
 
+from Text import *
+
 
 class Item():
-    def __init__(self, type = "item", subType = "universal", name = "Item", description = "This is a description", image = "Images/Other/Items/NoImage.png", visable = False):
+    def __init__(self, screen, type = "item", subType = "universal", name = "Item", description = "This is a description", image = "Images/Other/Items/NoImage.png", quantity = 1, visable = False):
         self.name = name
         self.image = pygame.image.load(image)
+        self.image = pygame.transform.scale(self.image,[100,100])
         self.rect = self.image.get_rect()
         self.visable = visable
         self.lvl = 1
@@ -14,6 +17,10 @@ class Item():
         self.enchantment = None
         self.modifier = None
         self.modName = None
+        self.screen = screen
+        self.quantity = quantity
+        self.quantityT = Text(str(quantity))
+        
         #Stat Changes
         
         self.statList = [
@@ -50,19 +57,19 @@ class Item():
             "goldChance":0,
             "corruption":0}
         self.enchantments = {
-            "Angelic": .2, #max corruption
-            "Vampiric": .15,
-            "Brutal": 0.2,
-            "Battle Hardened": .15,
-            "Void": .15,   #corruptionResistance
-            "Swift": .1,
+            "Angelic": 1.2, #max corruption
+            "Vampiric": 1.15,
+            "Brutal": 1.2,
+            "Battle Hardened": 1.15,
+            "Void": 1.15,   #corruptionResistance
+            "Swift": 1.1,
             "Corrupted":.2}
         self.modifiers = {
-            "Improved": 0.2,
-            "Refined": 0.4,
-            "Enhanced": 0.6,
-            "Immaculate": 1,
-            "Ascended": 1.2}
+            "Improved": 1.2,
+            "Refined": 1.4,
+            "Enhanced": 1.6,
+            "Immaculate": 2,
+            "Ascended": 2.2}
             
         
         #print self.stats.keys
@@ -213,3 +220,6 @@ class Item():
         print "===========Item Stats==========="
         for stat in self.statList:
             print stat
+    def drawElements(self):
+        self.screen.blit(self.image, self.rect)
+        self.image.blit(self.quantityT.words, self.quantityT.textpos)
